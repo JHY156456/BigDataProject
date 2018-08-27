@@ -1,0 +1,11 @@
+drop table SEARCH cascade constraint;
+
+CREATE TABLE SEARCH(
+	SEARCH_KEY VARCHAR(50),
+	SEARCH_MEMBER_ID VARCHAR(20),
+	SERCH_DATE DATE
+);
+
+INSERT INTO SEARCH VALUES ('혜영','gusdud0222',sysdate);
+INSERT INTO SEARCH VALUES ('송파구','gusdud0222',sysdate);
+commit;

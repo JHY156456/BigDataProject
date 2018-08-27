@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* ----------------------------------------------------------------
+- Title : Common Cascading Style Sheets
+- Author : Key
+- Date : 2015-09-24
+- Description : Layout Style Sheets
+---------------------------------------------------------------- */
+
+/* ----------------------
+	Pop up
+-------------------------*/
+/*common*/
+.popupWrap{position:relative;margin:0 auto;background:#fff;}
+.popupWrap .btn_close{position:absolute;top:26px;right:29px;}
+.popupWrap .pop_head{padding:32px 29px 27px;background:#b40a14;}
+.popupWrap .pop_head h1{font-size:28px;font-weight:700;color:#fff;}
+.popupWrap .pop_head h1 .pop_logo{height:32px;margin-right:17px;padding-right:24px;border-right:1px solid #fff;}
+.popupWrap .pop_cnt{padding:30px 30px;font-size:15px;overflow-x:hidden;overflow-y:auto;}
+.popupWrap .pop_cnt .pop_cnt_detail{}
+.popupWrap .pop_cnt .btn_btm_area{margin-top:26px;}
+.popupWrap .detail_area{border:1px solid #e2e2e2;}
+.popupWrap .detail_area table th,
+.popupWrap .detail_area table td{border-top:1px solid #e2e2e2;}
+.popupWrap .detail_area table th{font-size:17px;}
+.popupWrap .detail_area table tr:first-child th,
+.popupWrap .detail_area table tr:first-child td{border-top:none;}
+.simplemodal-overlay{background:#000;}
+
+/*Table*/
+.popupWrap .table_area table.row_tbl th{padding-top:25px;padding-left:20px;}
+
+/*Form*/
+.popupWrap input[type=text],
+.popupWrap input[type=password],
+.popupWrap input[type=email],
+.popupWrap input[type=search]{height:35px;line-height:35px;}
+.popupWrap .radio_area{ margin-bottom:8px;}
+
+/*도서 검색 및 선택*/
+.popupWrap .detail_area .search_wrap{padding:19px 26px 15px;background:none;}
+.popupWrap .detail_area .search_wrap .search_form{padding-bottom:27px;}
+.popupWrap .detail_area .search_wrap .search_area {width:400px !important;}
+.popupWrap .detail_area .search_wrap .search_area>div{margin-right:41px;}
+.popupWrap .detail_area .search_wrap select{width:132px;height:37px;line-height:37px;font-size:15px;}
+.popupWrap .detail_area .search_wrap .btn{width:40px;height:35px;line-height:35px;margin-left:-3px;}
+.popupWrap .detail_area .search_wrap li{margin-bottom:5px;color:#868686;}
+.popupWrap .detail_area .list_file{height:307px;overflow-x:hidden;overflow-y:auto;border-top:1px solid #e2e2e2;}
+.popupWrap .detail_area .list_file li{position:relative;padding:27px 29px 24px;border-top:1px solid #e2e2e2;}
+.popupWrap .detail_area .list_file li:first-child{border-top:none;}
+.popupWrap .detail_area .list_file li .tit{margin-right:58px;font-size:17px;}
+.popupWrap .detail_area .list_file .btn{position:absolute;top:50%;right:12px;margin-top:-13px;font-size:15px;padding:2px 12px;}
+
+/*도서 이미지 크게 보기*/
+.popupWrap#pop_book_expand{width:613px;height:685px;}
+.popupWrap#pop_book_expand .btn_close{top:2px;right:-51px;}
+.popupWrap#pop_book_expand .slider_paging{line-height:2em;padding:7px 0 31px;text-align:center;}
+.popupWrap#pop_book_expand .slider_paging li{display:inline-block;width:35px;height:12px;margin:0 4px;background:#4c4c4c;}
+.popupWrap#pop_book_expand .slider_paging li.current{}
+.popupWrap#pop_book_expand #pub .slider_paging li.current{background:#cf151a !important;}
+.popupWrap#pop_book_expand .img_area{position:relative;overflow:hidden;width:100%;text-align:center;}
+.popupWrap#pop_book_expand .img_area ul{overflow:hidden;width:69%;height:100%;margin:0 auto;text-align:center;white-space:nowrap;}
+.popupWrap#pop_book_expand .img_area li{display:inline-block;width:100%;}
+.popupWrap#pop_book_expand .img_area li.none{display:none;}
+.popupWrap#pop_book_expand .img_area img{max-width:100%;max-height:100%;}
+.popupWrap#pop_book_expand .img_area [class*="arrow_"]{position:absolute;top:50%;margin-top:-10%;}
+.popupWrap#pop_book_expand .img_area .arrow_left{left:7px;}
+.popupWrap#pop_book_expand .img_area .arrow_right{right:7px;}
+.popupWrap#pop_book_expand .btn_area{margin-top:39px;}
+.popupWrap#pop_book_expand .btn_area .btn{height:73px;line-height:73px;padding:0 27px 0 22px;font-weight:400;background-size:43px;background-position-x:22px;}
+.popupWrap#pop_book_expand .btn_area .btn img{width:43px;margin-right:10px;}
+
+/*이지스퍼블리싱 오탈자 신고*/
+.popupWrap#pop_misprint{width:720px;height:750px;}
+.popupWrap#pop_misprint table{}
+.popupWrap#pop_misprint table th{width:112px;}
+.popupWrap#pop_misprint table td input,
+.popupWrap#pop_misprint table td textarea{width:100%;}
+.popupWrap#pop_misprint table td textarea{width:97%;line-height:2.2em;padding:5px 0 5px 3%;}
+
+
+@media all and (max-width:736px){
+	/* ----------------------
+		Pop up
+	-------------------------*/
+	/*common*/
+	.popupWrap{width:96% !important;height:auto !important;}
+	.popupWrap .btn_close{top:17px;right:17px;}
+	.popupWrap .btn_close img{width:18px;}
+	.popupWrap .pop_head{padding:18px 22px 16px;}
+	.popupWrap .pop_head h1{font-size:23px;}
+	.popupWrap .pop_head h1 .pop_logo{height:30px;margin-right:5px;padding-right:10px;}
+	.popupWrap .pop_cnt{padding:20px;font-size:14px;}
+	.popupWrap .pop_cnt .btn_btm_area{margin-top:20px;}
+	.popupWrap .search_area{width:99.5% !important;}
+	.popupWrap .txt_cmnt{padding-right:0;padding-bottom:15px;padding-left:0;}
+	
+	/*Table*/
+	.popupWrap .table_area table.row_tbl th{padding-top:12px;padding-left:5px;}
+	
+	/*도서 검색 및 선택*/
+	.popupWrap .detail_area .search_wrap{padding:18px 18px 12px;}
+	.popupWrap .detail_area .search_wrap .search_form{padding-bottom:15px;}
+	.popupWrap .detail_area .search_wrap .search_form .search_area{width:100% !important;margin-top:7px;}
+	.popupWrap .detail_area .search_wrap select{width:100%;}
+	.popupWrap .detail_area .search_wrap li{margin-left:6px;text-indent:-6px;font-size:13px;}
+	.popupWrap .detail_area .list_file{height:215px;}
+	.popupWrap .detail_area .list_file li{padding:11px 12px 10px;}
+	.popupWrap .detail_area .list_file li .tit{font-size:16px;}
+
+	/*도서 이미지 크게 보기*/
+	.popupWrap#pop_book_expand{}
+	.popupWrap#pop_book_expand .btn_close{top:10px;right:10px;line-height:0;border:4px solid #666;background:#666;}
+	.popupWrap#pop_book_expand .btn_close img{width:18px;}
+	.popupWrap#pop_book_expand .slider_paging{padding:0px 15px 15px;}
+	.popupWrap#pop_book_expand .img_area ul{width:85%;}
+	.popupWrap#pop_book_expand .btn_area{margin-top:15px;}
+	.popupWrap#pop_book_expand .btn_area .btn{height:45px;line-height:45px;padding:0 20px 0 22px;font-size:20px;background-size:28px;background-position-x:22px;}
+	.popupWrap#pop_book_expand .btn_area .btn img{width:28px;}
+
+	/*이지스퍼블리싱 오탈자 신고*/
+	.popupWrap#pop_misprint table th{width:52px;}
+	.popupWrap#pop_misprint table td textarea{line-height:1.8em; padding-top:0}
+	}
+
+
+@media all and (max-width:399px){
+	/* ----------------------
+		Pop up
+	-------------------------*/
+	/*common*/
+	.popupWrap .pop_head h1{font-size:20px;}
+	.popupWrap .pop_head h1 .pop_logo{height:23px;}
+	}
+	
+/* ----------------------
+	이지스에듀
+-------------------------*/
+.edu_wrap{}
+.edu_wrap.popupWrap#pop_book_expand #pub .slider_paging li.current{background:#2d87ce !important;}
+.edu_wrap.popupWrap .pop_head{background:#2d87ce !important;}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>ADMIN</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ 		 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>  
+ 		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+    	<script src="js/jquery-3.3.1.min.js"></script>
+	
+	<style>
+	#imaginary_container{
+    margin-top:20%; /* Don't copy this */
+	}
+	.stylish-input-group .input-group-addon{
+	    background: white !important; 
+	}
+	.stylish-input-group .form-control{
+		border-right:0; 
+		box-shadow:0 0 0; 
+		border-color:#ccc;
+	}
+	.stylish-input-group button{
+	    border:0;
+	    background:transparent;
+	}
+	
+	</style>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=iw7zHumy_uqGEM4wvpuh"></script>
+	
+	<script type="text/javascript">
+	
+	$(function(){
+		$('#searchStation').keyup(function(){
+			document.getElementById('searchResult').style.display = 'block';
+			
+			 $.ajax({
+			        url:"scont?command=searchStation",
+			        type:'GET',
+			        data: {keyword : $('#searchStation').val()},
+			        success:function(data){
+			        	document.getElementById("searchResult").innerHTML = data;
+			            window.opener.location.reload();
+			            self.close();
+			        },
+			        error:function(jqXHR, textStatus, errorThrown){
+			            self.close();
+			        }
+			    });
+		});
+		
+		$('#searchStation').keyup(function(e){
+			if(e.keyCode == 40) {
+				
+			}
+		})
+	});
+	
+	$(function(){
+		$('#insertKeyword').on('click',function(){
+
+			 $.ajax({
+			        url:"scont?command=insertKeyword",
+			        type:'GET',
+			        data: {keyword : $('#searchStation').val()},
+			        success:function(data){
+			            window.opener.location.reload();
+			            self.close();
+			        },
+			        error:function(jqXHR, textStatus, errorThrown){
+			            self.close();
+			        }
+			    });
+		});
+	});
+	
+
+	
+	</script>
+	
+	<script type="text/javascript">
+	function ajaxReq(){
+		var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	//innerHTML - js에서 html tag를 화면에 출력할 때 사용되는 속성
+		    	//주의사항 : div와 p tag에 반영되는 속성
+		    	//innerText는 tag반영 안됨
+		    
+		    	drawMap(this.responseText);
+		    	}
+		    }
+		  
+		  xhttp.open("GET", "scont?command=stationMap", true);
+		  xhttp.send();
+	}
+	
+	function autoComplete(obj){
+		document.getElementById('searchStation').value = obj;
+		document.getElementById('searchResult').style.display = 'none';
+	}
+	
+	
+	</script>
+</head>
+<body onLoad ="ajaxReq()">
+<div class="container">
+	<div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" id="searchStation">
+                    <span class="input-group-addon">
+                        <button type="submit" id="insertKeyword">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+            <div id="searchResult" style="width:93.5%; background-color:white; border: 2px solid green; position:absolute; z-index:99" ></div>
+            <p></p><p></p>
+            <div id="map" style="width:100%;height:400px; margin:auto; position:relative; z-index:1;"></div>
+        </div>
+	</div>
+	
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+function drawMap(v){
+	
+	var map = new naver.maps.Map('map', {
+	    center: new naver.maps.LatLng(37.5662952, 126.97794509999),
+	    zoom: 7
+	});
+	
+	data = eval(v);
+	markers = [], infoWindows = [];
+	
+	
+	
+	for(var i=0; i<data.length;i++){
+		
+		var boardNum = data[i].boardNum;
+		var iconImg = './images/gray_64.png';
+		
+		if(boardNum > 0){
+			if(boardNum >=1 && boardNum <= 3){
+				iconImg = './images/red_64.png';
+			}
+			else if(boardNum >=4 && boardNum <=6){
+				iconImg = './images/yellow_64.png';
+			}
+			else if(boardNum >=7 && boardNum <=9){
+				iconImg = './images/orange_64.png';
+			}
+			else{
+				iconImg = './images/blue_64.png';
+			}
+		}
+		
+		var markerOptions = {
+			    position: new naver.maps.LatLng(data[i].latitude, data[i].longitude),
+			    map: map,
+			    icon: {
+			        url: iconImg
+			    }
+			};
+		
+	 	marker = new naver.maps.Marker(markerOptions);
+		
+		var infoWindow = new naver.maps.InfoWindow({
+			content: '<div style="width:150px;text-align:center;padding:10px;">' + data[i].stationName + '</div>'
+		});
+		
+		markers[i] = marker;
+		infoWindows[i] = infoWindow;
+	}
+		
+	naver.maps.Event.addListener(map, 'idle', function(){
+		updateMarkers(map,markers);
+	});
+	
+	function updateMarkers(map, markers){
+		var mapBounds = map.getBounds();
+		var marker, position;
+		
+		for(var i=0; i<markers.length; i++){
+			marker = markers[i];
+			position = marker.getPosition();
+			
+			if(mapBounds.hasLatLng(position)){
+				showMarker(map,marker);
+			}else{
+				hideMarker(map,marker);
+			}
+		}
+	}
+	
+	function showMarker(map,marker){
+		if(marker.setMap()) return;
+		marker.setMap(map);
+	}
+	
+	function hideMarker(map,marker){
+		
+		if(!marker.setMap()) return;
+		marker.setMap(null);
+	}
+	
+	function getClickHandler(seq){
+		return function(e){
+			var marker = markers[seq], infoWindow = infoWindows[seq];
+			
+			if(infoWindow.getMap()){infoWindow.close();}
+			else{infoWindow.open(map,marker);}
+		}
+	}
+	
+	for(var i=0, li=markers.length; i<li; i++){
+		naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+	}
+}
+
+</script>
+</html>

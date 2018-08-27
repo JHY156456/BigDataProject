@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport"
+	content="width=device-width, user-scalable=yes, target-densitydpi=device-dpi">
+
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout_common.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout_sub.css" />
+<link rel="stylesheet" type="text/css" href="../css/layout_popup.css" />
+<link rel="stylesheet" type="text/css"
+	href="../css/jquery-ui-1.11.2.css" />
+<script type="text/javascript"
+	src="http://gc.kis.v2.scr.kaspersky-labs.com/9E773850-0C32-D74E-A93A-09E4CCA19382/main.js"
+	charset="UTF-8"></script>
+<script type="text/javascript" src="/easy_js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="../easy_js/jquery-ui-1.11.2.min.js"></script>
+<script type="text/javascript" src="../easy_js/jquery.cookie-1.4.1.js"></script>
+<script type="text/javascript" src="../easy_js/common_func.js"></script>
+<script type="text/javascript" src="../easy_js/jquery.navgoco-0.2.1.js"></script>
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <script src="/easy_js/html5.js"></script>
+    <script src="/easy_js/respond.min.js"></script>
+<![endif]-->
+<title>이지스퍼블리싱 :: 공지사항/이벤트</title>
+</head>
+
+<body>
+	<div class="wrap" id="pub">
+				<!-- Gnb 영역 : s -->
+		<div class="gnb_wrap">
+			<div id="gnb">
+				<div class="container">
+					<h1>
+						<a href="${pageContext.request.contextPath}/Main/main.jsp"><img
+							src="${pageContext.request.contextPath}/images/logo_pub.png"
+							alt="이지스퍼블리싱"></a>
+					</h1>
+					<!-- web 화면에서 menu :s -->
+					<div class="menu_area">
+						<a href="#" class="btn_close_menu ver_mobile"><img
+							src="${pageContext.request.contextPath}/images/btn_close_gnb.png"
+							alt="메뉴 닫기" style="width: 30px;"></a>
+						<ul class="depth01">
+							<li class="current"><a href="${pageContext.request.contextPath}/Main/main.jsp" id="pub001A02이지스퍼블리싱"
+								class="btnMainLink"><img
+									src="${pageContext.request.contextPath}/images/logo_pub.png"
+									alt="이지스 퍼블리싱"></a>
+								<div class="depth02_area">
+									<ul class="depth02">
+										<li><a
+											href="${pageContext.request.contextPath}/Main/3hboard.jsp">3H
+												Board</a></li>
+
+										<li><a href="/30_Menu/DataList/PUB">대여소 현황</a></li>
+										<li><a
+											href="${pageContext.request.contextPath}/Main/notice.jsp">공지사항</a></li>
+
+										<li><a
+											href="${pageContext.request.contextPath}/cont?command=citizen">불편해요</a></li>
+
+										<!-- <li><a href="${pageContext.request.contextPath}/BoardList/Citizen.jsp">불편해요</a></li>
+										 -->
+										<li><a
+											href="${pageContext.request.contextPath}/Main/safeRule.jsp">안전수칙</a></li>
+
+
+									</ul>
+								</div></li>
+							<li><a href="${pageContext.request.contextPath}/Main/main.jsp" id="edu002A03이지스에듀" class="btnMainLink"><img
+									src="${pageContext.request.contextPath}/images/logo_pub.png"
+									alt="이지스 에듀"></a>
+								<div class="depth02_area none">
+									<ul class="depth02">
+										<li><a href="#">회사소개</a>
+											<div>
+												<ul class="depth03">
+													<li><a href="/11_Menu/CompanyInfo/PUB">이지스퍼블리싱(주)
+															소개</a></li>
+													<li><a href="/11_Menu/EngCompanyInfo/PUB">About
+															EasysPublishing</a></li>
+													<li><a href="/11_Menu/BrandInfo2/PUB">이지스에듀 소개</a></li>
+													<li><a href="/11_Menu/BookDown/PUB">도서 목록 다운로드</a></li>
+													<li><a href="/12_Menu/BoardList/C100/PUB">뉴스와 홍보
+															자료</a></li>
+													<li><a href="/12_Menu/BoardList/C200/PUB">공지사항/이벤트</a></li>
+													<li><a href="/11_Menu/Location/PUB">찾아오시는 길</a></li>
+												</ul>
+											</div></li>
+										<li><a href="#">도서</a>
+											<div>
+												<ul class="depth03">
+													<li><a href="/20_Menu/BookList/PUB">전체 보기</a></li>
+													<li><a href="#">분야별 보기</a>
+														<ul class="depth04">
+															<li><a href="/20_Menu/BookList/A001/PUB">초등 수학</a></li>
+															<li><a href="/20_Menu/BookList/A002/PUB">초등 영어</a></li>
+															<li><a href="/20_Menu/BookList/A007/PUB">초등 한자</a></li>
+															<li><a href="/20_Menu/BookList/A003/PUB">중등 수학</a></li>
+															<li><a href="/20_Menu/BookList/A008/PUB">중등 영어</a></li>
+															<li><a href="/20_Menu/BookList/A004/PUB">자녀교육,
+																	기타</a></li>
+														</ul></li>
+													<li><a href="#">시리즈 보기</a>
+														<ul class="depth04">
+															<li><a href="/20_Menu/BookList/B003/PUB">바빠 연산법</a></li>
+															<li><a href="/20_Menu/BookList/B011/PUB">바빠 중학
+																	수학</a></li>
+															<li><a href="/20_Menu/BookList/B004/PUB">바빠 영어</a></li>
+															<li><a href="/20_Menu/BookList/B012/PUB">바빠 급수
+																	한자</a></li>
+															<li><a href="/20_Menu/BookList/B005/PUB">우리집은
+																	놀이터</a></li>
+															<li><a href="/20_Menu/BookList/B009/PUB">에듀_기타</a></li>
+															<li><a href="/20_Menu/BookList/B013/PUB">나 혼자
+																	푼다!</a></li>
+														</ul></li>
+													<li><a href="/20_Menu/BookList/C000/PUB">전자책 보기</a></li>
+													<li><a href="#" id="pub001A02이지스퍼블리싱"
+														class="btBookLink">이지스퍼블리싱 도서 보기</a></li>
+												</ul>
+											</div></li>
+										<li><a href="/30_Menu/DataList/PUB">자료실</a></li>
+
+
+										<li class="last"><a
+											href="${pageContext.request.contextPath}/BoardList/citizenOpinionList.jsp">불편해요</a></li>
+
+
+										<li class="last short_cut_cafe"><a
+											href="http://blog.naver.com/easyspub" target="_blank">바빠
+												아지트</a></li>
+										<li class="last short_cut_cafe"><a
+											href="http://cafe.naver.com/easyispub" target="_blank">네이버
+												카페</a></li>
+									</ul>
+								</div></li>
+						</ul>
+					</div>
+					<!-- web 화면에서 menu : e -->
+
+					<!-- web 화면에서 로그인 : s -->
+					<div class="form_area">
+						<p class="ver_web">
+							<c:if test="${empty sessionScope.sid}">
+								<input type="button" name="WebLogin" value="로그인" title="로그인"
+									class="btnTopLogin" />
+							</c:if>
+							<c:if test="${not empty sessionScope.sid}">
+								<span
+									style="line-height: 1em; margin: 0 8px; color: #cdcdcd; background-color: transparent; font-weight: 500;">${sid}님
+									환영합니다.</span>
+								<a href="${pageContext.request.contextPath}/cont?command=logout">
+									<span
+									style="line-height: 1em; margin: 0 8px; color: #cdcdcd; background-color: transparent; font-weight: 500;">로그아웃</span>
+								</a>
+							</c:if>
+							| <input type="button" name="WebJoin" value="회원가입" title="회원가입"
+								class="btnTopJoin" />
+						</p>
+						<p class="search_area ver_web">
+							<input type="text" id="TotalKeyword1" name="TotalKeyword1"
+								class="inputbox_none btnTotalKeyword" value="킥보드, 지역 등 검색"
+								onfocus="this.value='';"
+								onblur="if(this.value=='') this.value='킥보드, 지역 등 검색';" /> <a
+								href="#TOTALSEARCH" class="btnTotalSearch1">도서검색</a>
+						</p>
+					</div>
+
+					<p class="gnb_menu ver_mobile">
+						<a href="#Menu" class="btn_open_menu"><img
+							src="${pageContext.request.contextPath}/images/mobile/ico_menu.png"
+							alt="메뉴열기"></a> <a href="#Search" class="btn_search"><img
+							src="${pageContext.request.contextPath}/images/mobile/ico_search.png"
+							alt="도서검색"></a>
+					</p>
+					<!-- web 화면에서 로그인 : e -->
+				</div>
+			</div>
+		</div>
+		<!-- gnb 영역 : e -->
+		<!-- 컨텐츠 영역 : s -->
+		<div class="gnb_wrap_search none">
+			<div class="search_area ver_mobile">
+				<div>
+					<input type="text" id="TotalKeyword2" name="TotalKeyword2"
+						class="inputbox_none btnTotalKeyword"
+						title="출판사 &quot;이지스퍼블리싱&quot;의 책들만 검색이 가능합니다."
+						value="도서명, 저자 등 검색" onfocus="this.value='';"
+						onblur="if(this.value=='') this.value='도서명, 저자 등 검색';" />
+				</div>
+				<a href="#TOTALSEARCH" class="btnTotalSearch2 btn btnBlack btnS">검색</a>
+			</div>
+		</div>
+		<!-- 컨텐츠 영역 : e -->
+
+		<form method="post" id="frmTotalSearch" name="frmTotalSearch"
+			action="/71_Menu/SearchList/PUB" onsubmit="return true;">
+			<input type="hidden" id="TotalPage" name="TotalPage" value="1" /> <input
+				type="hidden" id="TotalPageType" name="TotalPageType" value="" /> <input
+				type="hidden" id="TotalKeyword" name="TotalKeyword" value="" />
+		</form>
+
+		<script type="text/javascript">
+			$(document)
+					.ready(
+							function() {
+								$(".depth02_area>ul").navgoco({
+									accordion : true
+								});
+
+								$('.btnTopLogout').click(function(e) {
+									window.location = "/81_Menu/Logout/PUB";
+								});
+								$('.btnTopMyPage')
+										.click(
+												function(e) {
+													window.location = "/91_Menu/MemberModify/PUB";
+												});
+
+								$('.btn_search').click(function(e) {
+									$('.gnb_wrap_search').toggle();
+									$('.gnb_wrap_search').removeClass('none');
+								});
+
+								$('.btnTotalSearch1')
+										.click(
+												function(e) {
+													if ($('#TotalKeyword1')
+															.val() == ""
+															|| $(
+																	'#TotalKeyword1')
+																	.val() == "도서명, 저자 등 검색") {
+														alert("검색어를 입력하세요.");
+														$('#TotalKeyword1')
+																.focus();
+														return;
+													} else {
+														if ($('#TotalKeyword1')
+																.val() == "도서명, 저자 등 검색")
+															$('#TotalKeyword1')
+																	.val("");
+
+														$('#TotalPage').val(1);
+														$('#TotalPageType')
+																.val("");
+														$('#TotalKeyword')
+																.val(
+																		$(
+																				'#TotalKeyword1')
+																				.val());
+														$('#frmTotalSearch')
+																.attr('action',
+																		'/71_Menu/SearchList/PUB')
+																.submit();
+													}
+												});
+								$('.btnTotalSearch2')
+										.click(
+												function(e) {
+													if ($('#TotalKeyword2')
+															.val() == ""
+															|| $(
+																	'#TotalKeyword2')
+																	.val() == "도서명, 저자 등 검색") {
+														alert("검색어를 입력하세요.");
+														$('#TotalKeyword2')
+																.focus();
+														return;
+													} else {
+														if ($('#TotalKeyword2')
+																.val() == "도서명, 저자 등 검색")
+															$('#TotalKeyword2')
+																	.val("");
+
+														$('#TotalPage').val(1);
+														$('#TotalPageType')
+																.val("");
+														$('#TotalKeyword')
+																.val(
+																		$(
+																				'#TotalKeyword2')
+																				.val());
+														$('#frmTotalSearch')
+																.attr('action',
+																		'/71_Menu/SearchList/PUB')
+																.submit();
+													}
+												});
+								$('.btnTotalKeyword')
+										.keyup(
+												function(e) {
+													if (e.keyCode == 13) {
+														if ($(this).val() == "") {
+															alert("검색어를 입력하세요.");
+															$(this).focus();
+															return false;
+														} else {
+															if ($(this).val() == "도서명, 저자 등 검색")
+																$(this).val("");
+
+															$('#TotalPage')
+																	.val(1);
+															$('#TotalPageType')
+																	.val("");
+															$('#TotalKeyword')
+																	.val(
+																			$(
+																					this)
+																					.val());
+															$('#frmTotalSearch')
+																	.attr(
+																			'action',
+																			'/71_Menu/SearchList/PUB')
+																	.submit();
+														}
+													}
+												});
+
+								$('.btnMainLink').click(function(e) {
+									var sBrandCode = $(this).attr('id');
+									var sBrandUrl = sBrandCode.substring(0, 3);
+									$.cookie('BrandCode', sBrandCode, {
+										expires : 365,
+										path : '/'
+									});
+
+									window.location = "/Main/" + sBrandUrl;
+								});
+								$('.btBookLink')
+										.click(
+												function(e) {
+													var sBrandCode = $(this)
+															.attr('id');
+													var sBrandUrl = sBrandCode
+															.substring(0, 3);
+													$.cookie('BrandCode',
+															sBrandCode, {
+																expires : 365,
+																path : '/'
+															});
+
+													window.location = "/20_Menu/BookList/"
+															+ sBrandUrl;
+												});
+							});
+		</script>
+		<!-- Gnb 영역 : e -->
+
+		<!-- 컨텐츠 영역 : s -->
+		<div id="contents_wrap">
+			<div class="menu_loacation">
+				<div class="container">
+					<a href="../Main/main" class="home" title="메인페이지로 이동"></a> <span
+						class="depth pointer"
+						onClick="document.location.href='/11_Menu/CompanyInfo/PUB';">회사소개</span>
+					<span class="depth"><b>공지사항/이벤트</b></span>
+				</div>
+			</div>
+
+			<div class="contents" id="board_list_wrap">
+				<div class="container">
+					<h2>공지사항/이벤트</h2>
+
+					<form method="post" id="frmSearch" name="frmSearch"
+						action="/12_Menu/BoardList/C200/PUB" onSubmit="return true;">
+						<input type="hidden" name="page" id="page" value="1" />
+						<div class="top_form">
+							<select id="sh_keyfield" name="sh_keyfield">
+								<option value="ALL">전체</option>
+								<option value="a.TITLE">제목</option>
+								<option value="a.SEARCH_CONTENTS">내용</option>
+							</select>
+							<div class="search_area">
+								<div>
+									<input type="search" id="sh_keyword" name="sh_keyword"
+										title="검색어 입력" value="" placeholder="검색어를 입력하세요" />
+								</div>
+								<a href="#search" class="btnSearch btn"><img
+									src="../images/ico_search_pop.png" alt="검색"></a>
+							</div>
+						</div>
+					</form>
+					<div class="cnt_wrap">
+						<div class="board_list_area">
+							<ul>
+								<li><a href="#view" class="btnView" seq="528">
+										<div class="title">
+											<em class="badge badgeM badge_201">공지</em>
+											<h3>신혜영</h3>
+											<!--
+																				-->
+										</div>
+										<div class="date">2018.07.16</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="523">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>조용철</h3>
+											<span class="reply">(0)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.07.04</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="522">
+										<div class="title">
+											<em class="badge badgeM badge_201">공지</em>
+											<h3>정현영</h3>
+											<!--
+																				-->
+										</div>
+										<div class="date">2018.07.03</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="518">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>사업소개</h3>
+											<span class="reply">(0)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.05.28</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="510">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>ㅎㅇㅎㅇ</h3>
+											<span class="reply">(2)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.04.24</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="506">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>할룽!</h3>
+											<span class="reply">(0)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.04.12</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="505">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>유튜버 보겸과의 저녁 만찬에 초대합니다!</h3>
+											<span class="reply">(0)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.04.06</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="503">
+										<div class="title">
+											<em class="badge badgeM badge_203">마감</em>
+											<h3>퀵보드 추가대여</h3>
+											<span class="reply">(1)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.03.27</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="497">
+										<div class="title">
+											<em class="badge badgeM badge_201">공지</em>
+											<h3>투자자 모집</h3>
+											<!--
+																				-->
+										</div>
+										<div class="date">2018.03.12</div>
+								</a></li>
+								<li><a href="#view" class="btnView" seq="482">
+										<div class="title">
+											<em class="badge badgeM badge_202">이벤트</em>
+											<h3>ㅎㅇㅎㅇ</h3>
+											<span class="reply">(4)</span>
+											<!--
+																														<span class="btn badgeS btnRed">마감</span>
+																														-->
+										</div>
+										<div class="date">2018.02.23</div>
+								</a></li>
+
+							</ul>
+						</div>
+
+						<!-- pagine : s -->
+						<!-- web_ver -->
+						<div class="paging ver_web">
+
+							<span class="pageMove disabled"><img
+								src="../images/ico_arrow_pg_first.png" alt="10개 이전 페이지로 이동"></span>
+							<span class="pageMove disabled"><img
+								src="../images/ico_arrow_pg_prev.png" alt="이전 페이지로 이동"></span> <em
+								class="current"><span>1</span></em> <a href="#2"
+								class="BtnPageMove" alt="P2">2</a> <a href="#3"
+								class="BtnPageMove" alt="P3">3</a> <a href="#4"
+								class="BtnPageMove" alt="P4">4</a> <a href="#5"
+								class="BtnPageMove" alt="P5">5</a> <a href="#6"
+								class="BtnPageMove" alt="P6">6</a> <a href="#7"
+								class="BtnPageMove" alt="P7">7</a> <a href="#8"
+								class="BtnPageMove" alt="P8">8</a> <a href="#9"
+								class="BtnPageMove" alt="P9">9</a> <a href="#10"
+								class="BtnPageMove" alt="P10">10</a> <a href="#11"
+								class="pageMove BtnPageMove" alt="P11"><img
+								src="../images/ico_arrow_pg_next.png" alt="다음 페이지로 이동"></a> <a
+								href="#18" class="pageMove BtnPageMove" alt="P18"><img
+								src="../images/ico_arrow_pg_final.png" alt="10개 다음 페이지로 이동"></a>
+						</div>
+
+						<!-- mobile_ver -->
+						<div class="paging ver_mobile">
+
+							<span class="pageMove disabled"><img
+								src="../images/mobile/ico_arrow_pg_prev.png" alt="이전 페이지로 이동"></span>
+							<span class="pageIng"><em>1</em>&nbsp; / &nbsp;18</span> <a
+								href="#2" class="pageMove BtnPageMove" alt="P2"><img
+								src="../images/mobile/ico_arrow_pg_next.png" alt="다음 페이지로 이동"></a>
+						</div>
+						<!-- pagine : e -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 컨텐츠 영역 : e -->
+
+		<!-- footer : s -->
+		<div id="footer">
+			<div class="footer_menu">
+				<div class="container">
+					<ul>
+						<li><a href="/11_Menu/Location/PUB">찾아오시는 길</a></li>
+						<li><a href="/73_Menu/Privacy/PUB">개인정보취급방침</a></li>
+						<li><a href="/73_Menu/Agreement/PUB">이용약관</a></li>
+					</ul>
+					<div class="short_cut_ftr">
+						<a href="/73_Menu/WriterApply/PUB">저자신청</a>
+						</li> <a
+							href="https://docs.google.com/forms/d/e/1FAIpQLSc5ybZjSZqnV4ioXjSaIwKLjByN5mS01qByW33J3gtYdI3avA/viewform">역자신청</a>
+						<a href="/72_Menu/BoardWrite/PUB">교재샘플/강의자료 요청</a>
+						</li>
+					</div>
+				</div>
+			</div>
+
+			<div class="copyrights_area">
+				<div class="container">
+					<h1>
+						<img src="../images/logo_footer.png" alt="logo" />
+					</h1>
+					<div class="address">
+						<span>(150-806) 서울시 영등포구 당산로 41길 11 SK V1 센터 W동 323호</span> <br
+							class="none_br" />
+						<span>TEL (02)325-1722</span> <span>FAX (02)326-1723</span><br />
+						<span>사업자등록번호 105-87-44487</span> <span>대표자 : 이지연 / <br
+							class="none_br" />Email : <a href="mailto:easy@easyspub.co.kr">easy@easyspub.co.kr</a></span><br />
+						<span>Copyright(c)2015 이지스퍼블리싱㈜ EasysPublishing Co., Ltd.
+							All Rights Reserved</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- mobile 화면에서 로그인 -->
+			<p class="btm_btn_area ver_mobile">
+				<input type="button" name="MobileLogin" value="로그아웃" title="로그아웃"
+					class="btn btnTopLogout" /> | <input type="button"
+					name="MobileJoin" value="마이페이지" title="마이페이지"
+					class="btn btnTopMyPage" /> <input type="button" name=""
+					id="edu002A03이지스에듀" value="이지스에듀" title="이지스에듀"
+					class="btn btn_short_cut btnMainLink" />
+			</p>
+			<!-- mobile 화면에서 로그인// -->
+		</div>
+		<img src="/82_Menu/MemberStatOK" alt="" width="0" height="0" />
+
+		<!-- 이전 코드 <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-116139153-1', 'auto');
+  ga('send', 'pageview');
+</script> -->
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-116139153-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-116139153-1');
+		</script>
+		<!-- footer : e -->
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$('.btnSearch')
+							.click(
+									function() {
+										if ($('#sh_keyword').val() == "") {
+											alert("검색어를 입력하세요.");
+											$('#sh_keyword').focus();
+											return;
+										}
+										$('#page').val('1');
+										$('#frmSearch').attr('action',
+												'/12_Menu/BoardList/C200/PUB')
+												.submit();
+									});
+					$('#sh_keyword').keyup(
+							function(e) {
+								if (e.keyCode == 13) {
+									$('#page').val(1);
+									$('#frmSearch').attr('action',
+											'/12_Menu/BoardList/C200/PUB')
+											.submit();
+								}
+							});
+					$('.btnView').click(
+							function() {
+								$('#frmSearch').attr(
+										'action',
+										'/12_Menu/BoardView/C200/'
+												+ $(this).attr('seq') + '/PUB')
+										.submit();
+							});
+					$('.BtnPageMove')
+							.click(
+									function() {
+										$('#page').val(
+												$(this).attr('alt').replace(
+														"P", ""));
+										$('#frmSearch').attr('action',
+												'/12_Menu/BoardList/C200/PUB')
+												.submit();
+									});
+				});
+	</script>
+
+</body>
+</html>

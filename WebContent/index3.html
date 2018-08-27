@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>ADMIN</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=iw7zHumy_uqGEM4wvpuh"></script>
+    <script type="text/javascript">
+
+	function ajaxReq(){
+		var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	//innerHTML - js에서 html tag를 화면에 출력할 때 사용되는 속성
+		    	//주의사항 : div와 p tag에 반영되는 속성
+		    	//innerText는 tag반영 안됨
+		    
+		    	drawMap(this.responseText);
+		    	}
+		    
+		    }
+		  
+		  xhttp.open("GET", "cont?command=stationMap", true);
+		  xhttp.send();
+		  
+	}
+
+	
+	function drawMap(v){
+		
+		var map = new naver.maps.Map('map', {
+		    center: new naver.maps.LatLng(37.5662952, 126.97794509999),
+		    zoom: 7
+		});
+		
+		data = eval(v);
+		markers = [], infoWindows = [];
+		for(var i=0; i<data.length;i++){
+		 	marker = new naver.maps.Marker({
+			    position: new naver.maps.LatLng(data[i].latitude, data[i].longitude),
+			    map: map
+			});
+			
+			var infoWindow = new naver.maps.InfoWindow({
+				content: '<div style="width:150px;text-align:center;padding:10px;">' + data[i].stationName + '</div>'
+			});
+			
+			markers[i] = marker;
+			infoWindows[i] = infoWindow;
+		}
+		
+		
+		naver.maps.Event.addListener(map, 'idle', function(){
+			updateMarkers(map,markers);
+		});
+		
+		function updateMarkers(map, markers){
+			var mapBounds = map.getBounds();
+			var marker, position;
+			
+			for(var i=0; i<markers.length; i++){
+				marker = markers[i];
+				position = marker.getPosition();
+				
+				if(mapBounds.hasLatLng(position)){
+					showMarker(map,marker);
+				}else{
+					hideMarker(map,marker);
+				}
+			}
+		}
+		
+		function showMarker(map,marker){
+			if(marker.setMap()) return;
+			marker.setMap(map);
+		}
+		
+		function hideMarker(map,marker){
+			
+			if(!marker.setMap()) return;
+			marker.setMap(null);
+		}
+		
+		function getClickHandler(seq){
+			return function(e){
+				var marker = markers[seq], infoWindow = infoWindows[seq];
+				
+				if(infoWindow.getMap()){infoWindow.close();}
+				else{infoWindow.open(map,marker);}
+			}
+		}
+		
+		for(var i=0, li=markers.length; i<li; i++){
+			naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+		}
+	}
+	
+    </script>
+</head>
+<body onLoad ="ajaxReq()">
+<div id="map" style="width:50%;height:400px;"></div><p></p>
+
+</body>
+</html>
